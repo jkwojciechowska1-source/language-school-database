@@ -15,23 +15,23 @@ DROP TABLE IF EXISTS Room;
 PRAGMA foreign_keys = ON;
 
 CREATE TABLE Student (
-                         IdStudent INTEGER PRIMARY KEY,
-                         FirstName VARCHAR(20) NOT NULL,
-                         LastName VARCHAR(20) NOT NULL,
-                         BirthDate DATE,
-                         Email VARCHAR(50) UNIQUE
+                        IdStudent INTEGER PRIMARY KEY,
+                        FirstName VARCHAR(20) NOT NULL,
+                        LastName VARCHAR(20) NOT NULL,
+                        BirthDate DATE,
+                        Email VARCHAR(50) UNIQUE
 );
 
 CREATE TABLE Teacher (
-                         IdTeacher INTEGER PRIMARY KEY,
-                         FirstName VARCHAR(20) NOT NULL,
-                         LastName VARCHAR(20) NOT NULL,
-                         Specialization VARCHAR(30),
-                         Experience INT,
-                         HireDate DATE,
-                         FireDate DATE,
-                         SupervisorId INT,
-                         FOREIGN KEY (SupervisorId) REFERENCES Teacher(IdTeacher) ON DELETE SET NULL
+                        IdTeacher INTEGER PRIMARY KEY,
+                        FirstName VARCHAR(20) NOT NULL,
+                        LastName VARCHAR(20) NOT NULL,
+                        Specialization VARCHAR(30),
+                        Experience INT,
+                        HireDate DATE,
+                        FireDate DATE,
+                        SupervisorId INT,
+                        FOREIGN KEY (SupervisorId) REFERENCES Teacher(IdTeacher) ON DELETE SET NULL
 );
 
 CREATE TABLE Course (
@@ -97,12 +97,12 @@ CREATE TABLE CourseMaterial (
 );
 
 CREATE TABLE Payment (
-                         IdPayment INTEGER PRIMARY KEY,
-                         IdStudent INT,
-                         IdCourse INT,
-                         Amount DECIMAL(10,2),
-                         Date DATE,
-                         Status VARCHAR(20),
-                         FOREIGN KEY (IdStudent) REFERENCES Student(IdStudent),
-                         FOREIGN KEY (IdCourse) REFERENCES Course(IdCourse)
+                        IdPayment INTEGER PRIMARY KEY,
+                        IdStudent INT,
+                        IdCourse INT,
+                        Amount DECIMAL(10,2),
+                        Date DATE,
+                        Status VARCHAR(20),
+                        FOREIGN KEY (IdStudent) REFERENCES Student(IdStudent),
+                        FOREIGN KEY (IdCourse) REFERENCES Course(IdCourse)
 );
